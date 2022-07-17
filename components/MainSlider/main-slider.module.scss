@@ -1,0 +1,50 @@
+.image {
+  width: 100%;
+  height: 700px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.content {
+  position: absolute;
+  top: 50%; 
+  left: 63%;
+  transform: translate(-50%, -50%); 
+  text-align: center;
+  color: #03040F;
+  .title {
+    font-weight: 400;
+    font-size: 36px;
+    margin-bottom: 12px;
+  }
+  .subtitle {
+    font-weight: 600;
+    font-size: 56px;
+    margin-bottom: 32px;
+  }
+  .button {
+    font-weight: 500;
+    font-size: 15px;
+    color: #fff;
+    padding: 16px 20px;
+    background: #E31E25;
+    text-decoration: none;
+  }
+}
+
+@media (max-width: 420px) {
+  .content {
+    width: 100%;
+    left: 50%;
+    .title {
+      font-size: 26px;
+    }
+    .subtitle {
+      font-size: 48px;
+    }
+  }
+  .image {
+    height: 500px;
+  }
+}

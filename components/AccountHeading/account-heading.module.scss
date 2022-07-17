@@ -1,0 +1,38 @@
+.heading {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 48px;
+  .name {
+    font-weight: 400;
+    font-size: 36px;
+    color: #020415;
+    display: flex;
+    align-items: center;
+  }
+  .logout {
+    color: #878897;
+    font-weight: 400;
+    font-size: 16px;
+    background: transparent;
+    border: 0;
+    &:hover {
+      color: #040D5E;
+    }
+  }
+}
+
+.plus{
+  font-size: 12px;
+  line-height: 18px;
+  color: #040D5E;
+  border: 1px solid #040D5E;
+  padding: 2px 6px;
+  font-weight: 400;
+  margin: 5px 0 0 14px;
+}
+
+@media (max-width: 600px) {
+  .heading {
+    margin-top: 24px;
+  }
+}

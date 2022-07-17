@@ -1,0 +1,45 @@
+.orderreview {
+  .title {
+    display: flex;
+    align-items: center;
+    font-weight: 400;
+    font-size: 16px;
+    margin-bottom: 20px;
+    color: #ffffff;
+  }
+  .list {
+    padding: 0;
+    list-style: none;
+    .item {
+      margin-bottom: 16px;
+      font-weight: 300;
+      font-size: 15px;
+      color: #ffffff;
+      display: flex;
+      justify-content: space-between;
+      &.delivery {
+        margin-bottom: 24px;
+        color: #ffffff;
+      }
+      &.total {
+        font-weight: 400;
+        color: #ffffff;
+        margin-bottom: 24px;
+      }
+      &.sale {
+        span {
+          color: red;
+        }
+      }
+    }
+
+    align-items: center;
+    margin-bottom: 16px;
+    font-size: 14px;
+
+    &:last-of-type {
+      font-weight: 500;
+      font-size: 16px;
+    }
+  }
+}

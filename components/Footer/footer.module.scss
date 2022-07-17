@@ -1,0 +1,132 @@
+.footer {
+  color: #ffffff;
+  background: #03040F;
+  position: relative;
+  .menu {
+
+    .make_center{
+      display: flex;
+    }
+    padding: 56px 0;
+    .socialList {
+      list-style: none;
+      padding: 0;
+      .item {
+        margin-right: 20px;
+        svg {
+          width: 18px;
+          height: 18px;
+          margin-right: 8px;
+        }
+      }
+    }
+    .list {
+      padding: 0;
+      list-style: none;
+      font-weight: 300;
+      font-size: 14px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      
+
+      .title {
+        font-weight: 300;
+        font-size: 16px;
+        color: #ffffff;
+        margin-bottom: 20px;
+      }
+      .item {
+        &.phone {
+          a {
+            display: flex;
+            align-items: center;
+          }
+          span {
+            margin-right: 10px;
+          }
+        }
+        margin-bottom: 16px;
+        a {
+          text-decoration: none;
+          &:hover {
+            color: #38383F;
+          }
+        }
+      }
+    }
+  }
+  .copyright {
+    padding: 36px 0;
+    .left {
+      font-weight: 300;
+      font-size: 12px;
+      color: #ffffff;
+    }
+    .center {
+      .list {
+        margin: 0;
+        list-style: none;
+        display: flex;
+        justify-content: center;
+        .item {
+          margin-right: 50px;
+          svg {
+            path {
+              fill: #ffffff;
+            }
+          }
+        }
+      }
+    }
+    .right {
+      a {
+        text-decoration: none;
+        &:hover {
+          color: #ffffff;
+        }
+      }
+      span {
+        margin-left: 8px;
+        svg {
+          path {
+            fill: #ffffff;
+          }
+        }
+      }
+      font-weight: 300;
+      font-size: 12px;
+      color: #ffffff;
+      text-align: right;
+    }
+  }
+}
+
+@media (max-width: 770px) {
+  .footer {
+    height: auto;
+    .menu {
+      padding: 32px 0;
+      text-align: left;
+      .socialList {
+        justify-content: flex-start;
+      }
+      .list .item.phone a {
+        justify-content: flex-start;
+      }
+    }
+    .copyright {
+      padding: 32px 0;
+      .left {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      .center {
+        margin-bottom: 25px;
+      }
+      .right {
+        text-align: center;
+      }
+    }
+  }
+}

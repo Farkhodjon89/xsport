@@ -1,0 +1,162 @@
+.modalOverlay {
+  z-index: 15;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(34, 34, 34, 0.7);
+}
+
+.modalContent {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 540px;
+  height: auto;
+  background: #fff;
+  overflow: auto;
+  outline: none;
+  padding: 32px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.mobileButtons {
+  display: none;
+}
+
+.modal {
+  display: flex;
+  .image {
+    // margin-right: 0;
+    width: 50%;
+    height: 100%;
+  }
+  .content {
+    color: #020415;
+    width: 100%;
+    .title {
+      margin-bottom: 13px;
+      font-size: 15px;
+      font-weight: 400;
+      width: 90%;
+    }
+  }
+  .attributes {
+    font-weight: 300;
+    font-size: 14px;
+    margin-bottom: 14px;
+    display: flex;
+    color: #38383f;
+    .color {
+      display: flex;
+      align-items: center;
+      // margin-right: 3rem;
+      span {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        margin-left: 8px;
+      }
+    }
+    .size span {
+      margin-left: 8px;
+      color: #020415;
+    }
+  }
+  .text {
+    font-weight: 300;
+    font-size: 15px;
+    color: #049848;
+    display: flex;
+    align-items: center;
+    margin-bottom: 32px;
+    .icon {
+      margin-right: 8px;
+      border: 1px solid #049848;
+      border-radius: 5px;
+      height: 18px;
+      width: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      svg {
+        path {
+          stroke: #049848;
+        }
+      }
+    }
+  }
+  .buttons {
+    display: flex;
+    justify-content: space-between;
+    .toShop {
+      background: #fff;
+      border: 1px solid #e2e3ec;
+      font-size: 16px;
+      font-weight: 400;
+      color: #03040f;
+      padding: 14px 0;
+      width: 60%;
+    }
+    .toCart {
+      text-decoration: none;
+      padding: 14px 0;
+      color: #03040f;
+      border: 1px solid #e2e3ec;
+      width: 35%;
+      text-align: center;
+    }
+  }
+}
+
+.close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: transparent;
+  border: 0;
+  svg {
+    path {
+      stroke: #878897;
+    }
+  }
+}
+
+@media (max-width: 430px) {
+  .mobileButtons {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    .toShop {
+      background: #fff;
+      border: 1px solid #040d5e;
+      font-size: 16px;
+      font-weight: 400;
+      color: #040d5e;
+      padding: 14px 0;
+      width: 60%;
+    }
+    .toCart {
+      text-decoration: none;
+      padding: 14px 0;
+      color: #040d5e;
+      border: 1px solid #040d5e;
+      width: 35%;
+      text-align: center;
+    }
+  }
+  .modal {
+    .image {
+      img {
+        width: 63px;
+        height: 93px;
+      }
+    }
+  }
+  .modal .buttons {
+    display: none;
+  }
+}

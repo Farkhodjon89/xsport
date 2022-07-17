@@ -1,0 +1,42 @@
+.LeftNavigation {
+  margin-top: 3rem;
+  .list {
+    padding: 0;
+    list-style: none;
+
+    .item {
+      color: #020415;
+      font-weight: 300;
+      font-size: 16px;
+      margin-bottom: 26px;
+      a {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      &.active {
+        font-weight: 400;
+      }
+      a:hover {
+        text-decoration: none;
+        color: #4e5b5a;
+      }
+    }
+  }
+}
+
+@media (max-width: 770px) {
+  .LeftNavigation {
+    margin-top: 40px;
+    .list {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      .item {
+        margin-right: 10px;
+      }
+    }
+  }
+}

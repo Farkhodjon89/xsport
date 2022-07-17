@@ -1,0 +1,72 @@
+@import '@styles/settings/__settings';
+
+.children {
+  display: none;
+  position: absolute;
+  background: #fff;
+  top: 80px;
+  left: 0;
+  width: 100%;
+  padding: 0 15px;
+  height: 100%;
+  overflow: auto;
+
+  z-index: 999;
+  &.active {
+    display: block;
+  }
+  .back {
+    background: #fff;
+    border: 0;
+    padding: 0;
+    font-size: 16px;
+    font-weight: 400;
+    color: #020415;
+    margin-bottom: 24px;
+    span {
+      display: inline-block;
+      margin-right: 8px;
+      svg {
+        path {
+          stroke: #020415;
+        }
+      }
+    }
+  }
+  .title {
+    color: #878897;
+    font-weight: 300;
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+  .list {
+    list-style: none;
+    padding: 0;
+    .item {
+      padding-bottom: 20px;
+      a {
+        color: #020415;
+        font-weight: 400;
+        font-size: 16px;
+      }
+    }
+  }
+}
+.category {
+  width: 100%;
+  margin-bottom: 9px;
+  background-size: cover;
+  margin-bottom: 20px;
+  cursor: pointer;
+  .discount_text {
+    color: $sale-text-color;
+    font-size: 16px;
+    font-weight: 400;
+    display: inline-block;
+    text-decoration: none;
+    &:hover {
+      color: $sale-text-hover;
+      cursor: pointer;
+    }
+  }
+}

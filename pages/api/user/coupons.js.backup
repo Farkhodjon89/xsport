@@ -1,0 +1,30 @@
+import withSession from '../../../utils/cookieSession'
+import client from "../../../apollo/apollo-client";
+import  CUSTOMER_COUPONS  from "../../../queries/customer";
+import { checkCookie } from "../../../utils/checkCookie";
+
+export default withSession(async (req, res) => {
+  const userData = await checkCookie(req.session.get("user"), req);
+  const { first } = req.body;
+
+  if (!userData.isLoggedIn) {
+    res.json({ status: false });
+
+    return;
+  }
+
+  const response = await client.query({
+    query: CUSTOMER_COUPONS,
+    fetchPolicy: "no-cache",
+    context: {
+      customerToken: userData.authToken,
+    }
+  });
+
+  let coupons = response.data.customerCoupons;
+
+  res.json({
+    status: true,
+    coupons
+  });
+})

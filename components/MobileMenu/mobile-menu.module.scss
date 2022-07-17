@@ -1,0 +1,139 @@
+.wrapper {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: none;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  background: rgba(5, 31, 28, 0.6);
+  .mobileMenu {
+    position: relative;
+    width: 100%;
+    background: #fff;
+    height: 100%;
+    opacity: 1;
+    padding: 0 15px;
+    z-index: 99999;
+    overflow: auto;
+    .heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 19px 0;
+      margin-bottom: 24px;
+      .logoMobile {
+        svg {
+          path {
+            fill: #020415;
+            
+          }
+        }
+      }
+      .close {
+        color: #020415;
+        font-weight: 300;
+        font-size: 14px;
+        background: #fff;
+        border: 0;
+        svg {
+          path {
+            stroke: #020415;
+          }
+        }
+        
+      }
+    }
+    
+  }
+  &.active {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.menuBottom {
+  position: absolute;
+  bottom: 24px;
+  width: 100%;
+  left: 0;
+  padding: 0 15px;
+  .phone {
+    font-weight: 300;
+    font-size: 14px;
+    text-align: center;
+    margin-bottom: 24px;
+    a {
+      font-weight: 400;
+      margin-left: 3px;
+    }
+  }
+  .list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .item {
+      
+      display: flex;
+      align-items: center;
+      .title {
+        font-weight: 300;
+        font-size: 14px;
+        color: #020415;
+        text-align: center;
+     
+        //margin-bottom: 26px;
+      }
+      a {
+        display: flex;
+        align-items: center;
+        h4 {
+          margin: 0;
+        }
+      }
+      span {
+        display: inline;
+        margin-right: 12px;
+        svg {
+          width: 24px;
+          height: 24px;
+          path {
+            stroke: #020415;
+          }
+        }
+      }
+    }
+  }
+  
+}
+
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding-bottom: 50px;
+}
+
+
+.mobileWishlist {
+  position: relative;
+  .wishlistQuantity {
+    position: absolute;
+    left: 15px;
+    top: 0;
+    background: red;
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    font-size: 10px;
+    text-align: center;
+    color: #fff;
+  }
+  .title {
+    margin: 0;
+  }
+}

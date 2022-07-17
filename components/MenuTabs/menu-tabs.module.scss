@@ -1,0 +1,23 @@
+.menuTabs {
+  .list {
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  .item {
+    font-weight: 400;
+    font-size: 16px;
+    color: #040d5e;
+    padding: 14px 0;
+    border: 1px solid #03040f;
+    width: 46%;
+    text-align: center;
+    margin-bottom: 24px;
+    &.active {
+      background: #03040f;
+      color: #fff;
+    }
+  }
+}

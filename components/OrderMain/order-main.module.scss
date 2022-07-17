@@ -1,0 +1,98 @@
+.wrapper {
+  width: 540px;
+  margin: 0 auto;
+  padding: 32px;
+  background: #fbfbfb;
+  border: 1px solid #e2e3ec;
+}
+h1.title {
+  font-size: 26px;
+  color: #020415;
+  font-weight: 400;
+  text-align: center;
+  margin-bottom: 32px;
+}
+h2.title {
+  font-size: 16px;
+  color: #020415;
+  font-weight: 400px;
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.clientData {
+  margin-bottom: 32px;
+  .list {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    padding: 0;
+    text-align: left;
+    .item {
+      width: 25%;
+      margin-right: 20px;
+      height: 120px;
+      font-weight: 300;
+      font-size: 14px;
+      color: #38383f;
+    }
+  }
+}
+.button {
+  text-align: center;
+  width: 100%;
+  background: #e31e25;
+  font-size: 16px;
+  color: #fff;
+  display: block;
+  padding: 14px 0;
+  &:hover {
+    text-decoration: none;
+    color: #fff;
+  }
+}
+.productList {
+  .product {
+    margin-bottom: 26px;
+    display: flex;
+
+    .details {
+      width: 70%;
+      margin-left: 1rem;
+      position: relative;
+      .title {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 4px;
+        .name {
+          font-weight: 300;
+          font-size: 15px;
+        }
+        .price {
+          font-size: 15px;
+          font-weight: 400;
+        }
+      }
+      .brand {
+        font-weight: 300;
+        font-size: 15px;
+        color: #38383f;
+      }
+      .attributes {
+        position: absolute;
+        bottom: 0;
+        display: flex;
+        .color,
+        .size {
+          font-weight: 300;
+          font-size: 14px;
+          color: #38383f;
+          margin-right: 24px;
+          span {
+            color: #020415;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,17 @@
+.colorList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  max-height: 300px;
+  height: auto;
+  overflow: auto;
+
+  .color {
+    margin-bottom: 12px;
+    margin-right: 12px;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: 1px solid #E2E3EC;
+  }
+}

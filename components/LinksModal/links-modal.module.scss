@@ -1,0 +1,79 @@
+@import '@styles/settings/__settings';
+
+.menu {
+  position: fixed;
+  width: 100%;
+  left: 0;
+  top: 72px;
+  background: #fff;
+  display: none;
+  z-index: 10;
+
+  background: #fbfbff;
+  .children {
+    display: flex;
+    .list {
+      margin-right: 81px;
+      .item {
+        margin-bottom: 20px;
+      }
+    }
+  }
+  .submenu {
+    display: none;
+    position: absolute;
+    width: 100%;
+    top: 100%;
+    left: 0;
+    list-style: none;
+    padding: 0;
+    background: #fff;
+    margin-right: 50px;
+    height: auto;
+    padding-top: 32px;
+  }
+  .list {
+    list-style: none;
+    padding: 0;
+
+    .title {
+      padding: 16px 0;
+      &:hover {
+        .submenu {
+          display: block;
+        }
+      }
+      color: #38383f;
+      margin-right: 20px;
+      font-weight: 300;
+      font-size: 16px;
+      a:hover {
+        color: #38383f;
+      }
+    }
+
+    .discount_text {
+      padding: 16px 0;
+      &:hover {
+        .submenu {
+          display: block;
+        }
+      }
+      color: $sale-text-color;
+      font-weight: 300;
+      font-size: 16px;
+      a:hover {
+        color: $sale-text-hover;
+      }
+    }
+    .item {
+      margin-bottom: 20px;
+      font-weight: 300;
+      font-size: 16px;
+      color: #020415;
+      a:hover {
+        color: #020415;
+      }
+    }
+  }
+}

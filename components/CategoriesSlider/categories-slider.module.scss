@@ -1,0 +1,39 @@
+.category {
+  margin-bottom: 96px;
+  .image {
+    width: 160px;
+    height: 100px;
+    margin-bottom: 12px;
+  }
+  .title {
+    font-weight: 400;
+    font-size: 16px;
+    color: #020415;
+  }
+  a {
+    text-decoration: none;
+  }
+}
+.mobileCategory {
+  display: none;
+}
+
+@media (max-width: 440px) {
+  .categories {
+    display: none;
+  }
+  .mobileCategory {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    .category {
+      width: 47%;
+      margin-bottom: 24px;
+      .image {
+        width: 100%;
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+    }
+  }
+}

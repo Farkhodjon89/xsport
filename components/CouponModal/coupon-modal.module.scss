@@ -1,0 +1,195 @@
+.modalOverlay {
+  z-index: 15;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(34, 34, 34, 0.7);
+}
+
+.modalContent {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 540px;
+  height: auto;
+  background: #fff;
+  overflow: auto;
+  outline: none;
+  padding: 32px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.modal {
+  .title {
+    font-weight: 400;
+    font-size: 26px;
+    color: #020415;
+    margin-bottom: 32px;
+  }
+
+    .blueButton {
+      padding: 14px 0;
+      border: 0;
+      background: #040D5E;
+      color: #fff;
+      font-size: 16px;
+      font-weight: 400;
+      width: 50%;
+    }
+  
+  .list {
+    list-style: none;
+    display: flex;
+    padding: 0;
+    margin-bottom: 32px;
+    .item {
+      color: #38383F;
+      
+      .name {
+        font-weight: 300;
+        font-size: 14px;
+        margin-bottom: 6px;
+        margin-right: 32px;
+      }
+      .value {
+        font-weight: 300;
+        font-size: 15px;
+        color: #020415;
+      }
+    }
+  }
+}
+
+.errorMessage {
+  position: absolute;
+  top: 40px;
+  font-weight: 300;
+  font-size: 12px;
+  color: #FF1D53;
+ }
+.inputs {
+  position: relative;
+  input:focus + label {
+    transform: translateY(-66px);
+  }
+  input.valid + label {
+    transform: translateY(-66px);
+  }
+  textarea:focus + label {
+    transform: translateY(-66px);
+  }
+  textarea.valid + label {
+    transform: translateY(-66px);
+  }
+  
+  label {
+    transform: translateY(-33px);
+    transition: 0.3s;
+    color: #38383F;
+    font-weight: 300;
+    font-size: 14px;
+    font-family: "Oswald";  
+  }
+  .error {
+    border-color: #FF1D53;
+  }
+  .error + label {
+    color: #FF1D53;
+    
+  }
+
+
+  input,
+  select,
+  textarea {
+    width: 100%;
+    height: 40px;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 1px  solid #95adab;
+    outline: #00554c auto 0;
+    border-radius: 0;
+    margin-bottom: 20px;
+    background: transparent;
+    color: #38383F;
+    font-weight: 300;
+    font-size: 14px;
+    font-family: "Oswald";
+    &::placeholder {
+      color: #38383F;
+      font-family: "Oswald";
+    }
+   
+  }
+  input {
+    margin-bottom: 0;
+  }
+  select {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    background: url("/catalog/smallArrowDown.svg") no-repeat 98% center;
+  }
+  textarea {
+    margin-bottom: 0;
+    font-family: "Oswald";
+    resize: none;
+    padding-top: 10px;
+    height: 40px;
+  }
+}
+
+.close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: transparent;
+  border: 0;
+  svg {
+    path {
+      stroke: #878897;
+    }
+  }
+}
+
+@media (max-width: 430px) {
+  .mobileButtons {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    .toShop {
+      background: #fff;
+      border: 1px solid #040D5E;
+      font-size: 16px;
+      font-weight: 400;
+      color: #040D5E;
+      padding: 14px 0;
+      width: 60%;
+    }
+    .toCart {
+      text-decoration: none;
+      padding: 14px 0;
+      color: #040D5E;
+      border: 1px solid #040D5E;
+      width: 35%;
+      text-align: center;
+    }
+  }
+  .modal {
+    .image {
+      img {
+        width: 63px;
+        height: 93px;
+      }
+    }
+  }
+  .modal .buttons {
+    display: none;
+  }
+}

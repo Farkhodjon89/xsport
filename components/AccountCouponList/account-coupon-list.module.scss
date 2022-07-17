@@ -1,0 +1,86 @@
+.c {
+  list-style: none;
+  margin: 0 0 40px;
+  padding: 0;
+  display: grid;
+  grid-gap: 30px;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  & > li{
+    background: #FBFBFF;
+    border: 1px solid #E2E3EC;
+    padding: 32px;
+  }
+}
+
+.a{
+  display: flex;
+  padding: 0;
+  list-style: none;
+  margin: 0;
+  justify-content: space-between;
+  align-items: flex-end;
+  li{
+    label{
+      display: block;
+      font-weight: 300;
+      color: #38383F;
+      font-size: 14px;
+      line-height: 20px;
+      margin-bottom: 6px;
+    }
+    span{
+      font-size: 15px;
+      line-height: 22px;
+    }
+    button{
+      display: flex;
+      align-items: center;
+      color: #040D5E;
+      font-size: 16px;
+      line-height: 24px;
+      background: none;
+      border: none;
+      i{
+        margin-right: 8px;
+      }
+    }
+  }
+}
+
+.emptyCoupons {
+  background: #FBFBFF;
+  border: 1px solid #E2E3EC;
+  padding: 14px 20px 14px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  .i{
+    display: flex;
+    align-items: center;
+    i{
+      display: block;
+      margin-right: 14px;
+    }
+    p{
+      margin: 0;
+      font-weight: 300;
+      font-size: 15px;
+      line-height: 22px;
+      strong{
+        font-weight: 400;
+      }
+    }
+  }
+  button{
+    font-size: 16px;
+    line-height: 24px;
+    text-decoration: underline;
+    color: #040D5E;
+    border: none;
+    background: none;
+    font-weight: 400;
+    &:hover{
+      text-decoration: none;
+    }
+  }
+}

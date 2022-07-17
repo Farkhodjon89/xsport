@@ -1,0 +1,33 @@
+.content {
+  margin-bottom: 3rem;
+  .title {
+    font-weight: 500;
+    font-size: 20px;
+    color: #1c272f;
+  }
+  p {
+    font-weight: 400;
+    font-size: 16px;
+    color: #1c272f;
+  }
+}
+.activeMenu {
+  display: none;
+}
+
+@media (max-width: 771px) {
+  .pageContent {
+    display: none;
+    &.activeMobile {
+      display: block;
+    }
+  }
+  .activeMenu {
+    display: block;
+    background: transparent;
+    border: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}

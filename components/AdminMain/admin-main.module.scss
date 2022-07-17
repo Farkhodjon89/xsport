@@ -1,0 +1,48 @@
+
+.account {
+    display: flex;
+}
+.tabsInner {
+
+    margin: 0 -12.5px;
+    div {
+
+
+        padding: 0 12.5px;
+        cursor: pointer;
+        span {
+            width: 100%;
+            height: 100%;
+            font-weight: 300;
+            font-size: 16px;
+            color: #020415;
+            border-radius: 2px;
+            &.active {
+                font-weight: 400;
+                font-size: 16px;
+            }
+        }
+    }
+}
+@media screen and (max-width: 650px) {
+    .tabsWrapper {
+        margin: 0 0 25px;
+        font-size: 12px;
+        font-weight: 500px;
+    }
+    .tabsInner {
+        height: 70px;
+        margin: 0 -6px;
+        div {
+            padding: 0 6px;
+            span {
+                justify-content: space-evenly;
+                flex-direction: column;
+                border-radius: 5px;
+                img {
+                    display: block;
+                }
+            }
+        }
+    }
+}

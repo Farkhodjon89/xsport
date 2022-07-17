@@ -1,0 +1,165 @@
+.product {
+  padding: 0 15px;
+
+  &.catalog {
+    margin-bottom: 32px;
+  }
+
+  .top {
+    margin-bottom: 14px;
+    position: relative;
+
+    .image {
+      // width: 100%;
+      // height: 380px;
+      object-fit: contain;
+    }
+
+    .newProduct {
+      font-family: Fira Sans Condensed;
+      font-size: 12px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 14px;
+      letter-spacing: 0em;
+      text-align: left;
+      color: #fff;
+      padding: 3px 6px;
+      background-color: #002BC6;
+    }
+  }
+
+  .bottom {
+    margin: 0 1rem;
+
+    .title {
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: space-between;
+      color: #020415;
+
+      .name {
+        font-weight: 300;
+        font-size: 15px;
+      }
+
+      .brand {
+        font-weight: 300;
+        font-size: 15px;
+      }
+    }
+
+    .prices {
+      display: flex;
+      justify-content: space-between;
+
+      .price {
+        color: #020415;
+        font-weight: 400;
+        font-size: 15px;
+      }
+
+      .twoPrices {
+        display: flex;
+        flex-direction: column;
+
+      }
+
+      .normalPrice {
+        font-family: Fira Sans Condensed;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 300;
+        text-align: left;
+        color: #878897;
+        text-decoration: line-through;
+        margin-right: 0.5rem;
+      }
+
+      .salePrice {
+        font-family: Fira Sans Condensed;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 19px;
+        letter-spacing: 0em;
+        text-align: left;
+        color: #ff1d53;
+        margin-right: auto;
+      }
+    }
+
+    .addToWishlist {
+      background: transparent;
+      border: 0;
+      padding: 0;
+
+      svg {
+        path {
+          stroke: #878897;
+        }
+      }
+
+      &.active {
+        svg {
+          path {
+            fill: #e31e25;
+            stroke: #e31e25;
+          }
+        }
+      }
+
+      &:hover {
+        svg {
+          path {
+            stroke: #040d5e;
+          }
+        }
+      }
+    }
+  }
+}
+
+.product a {
+  text-decoration: none;
+}
+
+@media (max-width: 980px) {
+  .product {
+    .top {
+      .image {
+        height: 500px;
+      }
+    }
+  }
+}
+
+@media (max-width: 650px) {
+  .product {
+    .top {
+      .image {
+        height: 400px;
+      }
+    }
+  }
+}
+
+@media (max-width: 550px) {
+  .product {
+    .top {
+      .image {
+        height: 280px;
+      }
+    }
+  }
+}
+
+@media (max-width: 400px) {
+  .product {
+    .top {
+      .image {
+        height: 230px;
+      }
+    }
+  }
+}

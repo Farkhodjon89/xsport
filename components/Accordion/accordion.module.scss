@@ -1,0 +1,54 @@
+.accordion {
+  margin-bottom: 40px;
+}
+.noMargin {
+  margin-bottom: 0 !important;
+}
+.title {
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(2, 4, 21, 0.2);;
+  .icon {
+    margin-right: 12px;
+    width: 32px;
+    height: 32px;
+  }
+  div {
+    display: flex;
+    align-items: center;
+  }
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  font-weight: 300;
+  font-size: 16px;
+  color: #878897;
+  margin-bottom: 20px;
+
+  span {
+    svg {
+      path {
+        stroke: #878897;
+      }
+    }
+  }
+
+  &.active {
+    border-color: #020415;
+    color: #020415;
+    span {
+      transform: rotate(180deg) !important;
+      svg {
+        path {
+          stroke: #200E32;
+        }
+      }
+    }
+  }
+}
+.content {
+  font-size: 14px;
+  line-height: 28px;
+  color: #222222;
+}

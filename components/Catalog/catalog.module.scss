@@ -1,0 +1,46 @@
+.emptyProduct {
+  margin-top: 200px;
+  text-align: center;
+  display: block;
+}
+.sort {
+  display: flex;
+  justify-content: flex-end;
+  font-family: Fira Sans Condensed;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 18px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #020415;
+  margin-bottom: 33px;
+  
+  select {
+    margin-left: 6px;
+    border: 0;
+    background-color: transparent;
+    color: #38383F;
+    font-weight: 300;
+  }
+}
+.resetFilter {
+  margin-bottom: 200px;
+}
+.mobileFilters {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  .sort {
+    margin-bottom: 0;
+    select {
+      font-size: 16px;
+      font-weight: 400;
+      color: #040D5D;
+    }
+
+    svg {
+      margin-right: 8px;
+    }
+  }
+}

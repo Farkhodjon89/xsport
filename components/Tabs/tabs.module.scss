@@ -1,0 +1,82 @@
+.tab {
+  margin-bottom: 64px;
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-weight: 500;
+    font-size: 16px;
+    color: #051f1c;
+    margin-bottom: 12px;
+  }
+  p, div {
+    font-weight: 300;
+    font-size: 15px;
+    color: #38383F;
+  }
+
+
+  .tabHeader {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    padding: 0;
+    margin-bottom: 36px;
+    li {
+      font-size: 16px;
+      width: 100%;
+      font-weight: 400;
+      color: #878897;
+      cursor: pointer;
+      border-bottom: 2px solid rgba(2, 4, 21, 0.2);;
+      padding-bottom: 12px;
+      margin-right: 32px;
+      &:last-of-type {
+        margin-right: 0;
+      }
+      &.active {
+        color: #020415;
+        border-color: #020415;
+      }
+      
+    }
+  }
+}
+
+
+@media (max-width: 700px) {
+  .tab {
+  
+    .tabHeader {
+      li {
+        font-size: 11px;
+        &:not(.disable):hover {
+        }
+      }
+    }
+  }
+}
+.sliderPrevArrow {
+  position: absolute;
+  left: -15px;
+  background: #fff;
+  width: 20px;
+  top: 30%;
+  height: 20px;
+  svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+.sliderNextArrow {
+  position: absolute;
+  right: -15px;
+  background: #fff;
+  width: 20px;
+  height: 20px;
+  top: 30%;
+  svg {
+    width: 20px;
+    height: 20px;
+  }
+}

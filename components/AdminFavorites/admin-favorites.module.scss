@@ -1,0 +1,180 @@
+.wrapper {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 0 25px;
+}
+.mainTitle {
+  display: flex;
+  align-items: center;
+  height: 70px;
+  font-weight: 500;
+  font-size: 20px;
+}
+.cardlist {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.card {
+  width: 48%;
+  display: flex;
+  margin-bottom: 25px;
+}
+
+.details {
+  margin-left: 1rem;
+  width: 70%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.nameRemove {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 30px;
+  font-weight: 500;
+  font-size: 14px;
+  border-bottom: 1px solid #eeeeee;
+  div {
+    width: 150px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  button {
+    display: flex;
+    align-items: center;
+    font-size: 13px;
+    color: #9b9b9b;
+    img {
+      margin-left: 10px;
+    }
+  }
+}
+.price {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 40px;
+  border-bottom: 1px solid #eeeeee;
+  font-size: 14px;
+}
+.color {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 30px;
+  font-weight: 500;
+  font-size: 14px;
+  border-bottom: 1px solid #eeeeee;
+  div {
+    display: flex;
+    align-items: center;
+    font-weight: normal;
+    margin: 0 5px;
+    span {
+      display: block;
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      margin-left: 5px;
+    }
+  }
+}
+.size {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 30px;
+  font-weight: 500;
+  font-size: 14px;
+  border-bottom: 1px solid #eeeeee;
+  span {
+    font-weight: normal;
+    margin: 0 5px;
+  }
+}
+
+.emptyCart {
+  width: 100%;
+  margin: 50px auto;
+  height: 300px;
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid gray;
+  a {
+    font-weight: bold;
+    text-decoration: underline !important;
+  }
+}
+
+.show,
+.removeImg {
+  display: none;
+}
+
+@media screen and (max-width: 1023px) {
+  .cardlist {
+    flex-wrap: nowrap;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .card {
+    width: 100%;
+    display: flex;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eeeeee;
+    position: relative;
+  }
+  .img {
+    width: 150px;
+    height: 230px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-right: 20px;
+  }
+  .removeImg {
+    display: block;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+  }
+  .nameRemove {
+    font-size: 13px;
+    height: 10px;
+    border-bottom: none;
+    button {
+      display: none;
+    }
+  }
+  .price {
+    height: 40px;
+    border-bottom: none;
+  }
+  .color {
+    height: 40px;
+    border: 1px solid #d4c6b9;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    padding: 10px;
+  }
+  .size {
+    height: 40px;
+    border: 1px solid #d4c6b9;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    padding: 10px;
+  }
+  .show {
+    display: block;
+  }
+}

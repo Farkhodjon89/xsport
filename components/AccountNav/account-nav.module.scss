@@ -1,0 +1,28 @@
+.navigation {
+  margin-bottom: 32px;
+  .list {
+    list-style: none;
+    padding: 0;
+    .item {
+      font-weight: 300;
+      font-size: 16px;
+      margin-bottom: 16px;
+      color: #020415;
+      .link {
+        text-decoration: none;
+        &:hover {
+          color: #020415;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1000px) {
+  .navigation {
+    .list {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+}
