@@ -1,16 +1,19 @@
-import Layout from '../../components/Layout';
-import Breadcrumbs from '../../components/Breadcrumbs';
-import ProductCard from '../../components/ProductCard';
-import client from '../../apollo/apollo-client';
-import { useState } from 'react';
-import PRODUCT from '../../queries/product';
+import Layout from '../../components/Layout'
+import Breadcrumbs from '../../components/Breadcrumbs'
+import ProductCard from '../../components/ProductCard'
+import client from '../../apollo/apollo-client'
+import { useState } from 'react'
+import PRODUCT from '../../queries/product'
 // import PRODUCTS, { PRODUCTS_SLUG } from '../../queries/products';
-import { connect } from 'react-redux';
-import { getPrice } from '../../utils';
-import TOPCOLORS from '../../queries/topColors';
-import { addToCart, deleteFromCart } from '../../redux/actions/cartActions';
-import { addToWishlist, deleteFromWishlist } from '../../redux/actions/wishlistActions';
-import { StaticDataSingleton } from '../../utils/staticData';
+import { connect } from 'react-redux'
+import { getPrice } from '../../utils'
+import TOPCOLORS from '../../queries/topColors'
+import { addToCart, deleteFromCart } from '../../redux/actions/cartActions'
+import {
+  addToWishlist,
+  deleteFromWishlist,
+} from '../../redux/actions/wishlistActions'
+import { StaticDataSingleton } from '../../utils/staticData'
 
 const Product = ({
   product,
@@ -24,7 +27,7 @@ const Product = ({
   categories,
   topColors,
 }) => {
-  const [openCart, setOpenCart] = useState(false);
+  const [openCart, setOpenCart] = useState(false)
 
   const path = [
     {
@@ -35,8 +38,8 @@ const Product = ({
       name: product.name,
       link: `/product/${product.slug}`,
     },
-  ];
-  const { normalPrice, salePrice } = getPrice(product);
+  ]
+  const { normalPrice, salePrice } = getPrice(product)
   return (
     <>
       <Layout
@@ -47,8 +50,9 @@ const Product = ({
         }
         categories={categories}
         openCart={openCart}
-        setOpenCart={setOpenCart}>
-        <div className="container">
+        setOpenCart={setOpenCart}
+      >
+        <div className='container'>
           <Breadcrumbs path={path} />
           <ProductCard
             topColors={topColors}
@@ -65,8 +69,8 @@ const Product = ({
         </div>
       </Layout>
     </>
-  );
-};
+  )
+}
 
 // export const getStaticPaths = async () => {
 //   const paths = []
@@ -99,36 +103,36 @@ const Product = ({
 //   }
 
 export async function getServerSideProps({ params }) {
-  let response;
+  let response
 
   try {
     response = await client.query({
       query: PRODUCT,
       variables: { id: params.slug },
-    });
+    })
   } catch (e) {
     return {
       notFound: true,
-    };
+    }
   }
 
-  let topColors;
+  let topColors
   try {
     topColors = await client.query({
       query: TOPCOLORS,
       variables: { terms: response.data.product.sku },
-    });
+    })
   } catch (e) {
-    console.log(e);
+    console.log(e)
 
     return {
       notFound: true,
-    };
+    }
   }
 
-  const staticData = new StaticDataSingleton();
-  await staticData.checkAndFetch();
-  const categories = staticData.getRootCategories();
+  const staticData = new StaticDataSingleton()
+  await staticData.checkAndFetch()
+  const categories = staticData.getRootCategories()
 
   return {
     props: {
@@ -136,29 +140,41 @@ export async function getServerSideProps({ params }) {
       topColors: topColors.data.products.nodes,
       categories: categories.allCategories,
     },
-  };
+  }
 }
 
 const mapStateToProps = (state) => {
   return {
     cartItems: state.cartData,
     wishlistItems: state.wishlistData,
-  };
-};
+  }
+}
 const mapDispatchToProps = (dispatch) => {
   return {
-    addToCart: (item, selectedProductColor, selectedProductSize, selectedProductId) => {
-      dispatch(addToCart(item, selectedProductColor, selectedProductSize, selectedProductId));
+    addToCart: (
+      item,
+      selectedProductColor,
+      selectedProductSize,
+      selectedProductId
+    ) => {
+      dispatch(
+        addToCart(
+          item,
+          selectedProductColor,
+          selectedProductSize,
+          selectedProductId
+        )
+      )
     },
     deleteFromCart: (item) => {
-      dispatch(deleteFromCart(item));
+      dispatch(deleteFromCart(item))
     },
     addToWishlist: (item) => {
-      dispatch(addToWishlist(item));
+      dispatch(addToWishlist(item))
     },
     deleteFromWishlist: (item) => {
-      dispatch(deleteFromWishlist(item));
+      dispatch(deleteFromWishlist(item))
     },
-  };
-};
-export default connect(mapStateToProps, mapDispatchToProps)(Product);
+  }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(Product)
