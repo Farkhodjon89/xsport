@@ -29,15 +29,16 @@ const ProductCard = ({
   deleteFromWishlist,
   getActiveStatus,
 }) => {
+  console.log('product', product)
   const [selectedProductId, setSelectedProductId] = useState(
     product.variations
-      ? product.variations.nodes[0].databaseId
+      ? product.variations.nodes[0]?.databaseId
       : product.databaseId
   )
 
   const [selectedProductStock, setSelectedProductStock] = useState(
     product.variations
-      ? product.variations.nodes[0].stockQuantity
+      ? product.variations.nodes[0]?.stockQuantity
       : product.stockQuantity
   )
 
@@ -48,19 +49,19 @@ const ProductCard = ({
 
   const [selectedProductImage, setSelectedProductImage] = useState(
     product.variations
-      ? product.variations.nodes[0].image.sourceUrl
+      ? product.variations.nodes[0]?.image?.sourceUrl
       : product.image.sourceUrl
   )
 
   const [selectedProductColorValue, setSelectedProductColorValue] = useState(
     product.variations
-      ? product.variations.nodes[0].color?.nodes[0]?.color
+      ? product.variations.nodes[0]?.color?.nodes[0]?.color
       : product.paColors.nodes[0]?.color
   )
 
   const [selectedProductSize, setSelectedProductSize] = useState(
     product.variations
-      ? product.variations.nodes[0].size?.nodes[0]?.value
+      ? product.variations.nodes[0]?.size?.nodes[0]?.value
       : product.paSizes.nodes[0]?.name
   )
 
@@ -236,61 +237,70 @@ const ProductCard = ({
     <>
       <div className='row product_cart'>
         <div className='col-lg-8 col-12'>
-          <LightgalleryProvider>
-            <div className={s.images}>
-              <div className={s.img}>
+          {selectedProductImage && (
+            <LightgalleryProvider>
+              <div className={s.images}>
+                <div className={s.img}>
+                  <LightgalleryItem
+                    src={selectedProductImage}
+                    thumb={selectedProductImage}
+                  >
+                    <Image
+                      src={selectedProductImage || ''}
+                      width={255}
+                      height={380}
+                      alt='product_main_image'
+                    />
+                  </LightgalleryItem>
+                </div>
+                {product.galleryImages.nodes.map(
+                  ({ sourceUrl }) =>
+                    sourceUrl && (
+                      <div className={s.img} key={sourceUrl}>
+                        <LightgalleryItem src={sourceUrl} thumb={sourceUrl}>
+                          <Image
+                            src={sourceUrl || ''}
+                            width={350}
+                            height={520}
+                            alt='product_extra_images'
+                          />
+                        </LightgalleryItem>
+                      </div>
+                    )
+                )}
+              </div>
+            </LightgalleryProvider>
+          )}
+          {selectedProductImage && (
+            <LightgalleryProvider>
+              <Slider {...settings} className={s.slider}>
                 <LightgalleryItem
                   src={selectedProductImage}
                   thumb={selectedProductImage}
                 >
                   <Image
                     src={selectedProductImage}
-                    width={255}
+                    width={380}
                     height={380}
-                    alt='product_main_image'
+                    alt='product_slider_main_image'
                   />
                 </LightgalleryItem>
-              </div>
-              {product.galleryImages.nodes.map(({ sourceUrl }) => (
-                <div className={s.img} key={sourceUrl}>
-                  <LightgalleryItem src={sourceUrl} thumb={sourceUrl}>
-                    <Image
-                      src={sourceUrl}
-                      width={350}
-                      height={520}
-                      alt='product_extra_images'
-                    />
-                  </LightgalleryItem>
-                </div>
-              ))}
-            </div>
-          </LightgalleryProvider>
-          <LightgalleryProvider>
-            <Slider {...settings} className={s.slider}>
-              <LightgalleryItem
-                src={selectedProductImage}
-                thumb={selectedProductImage}
-              >
-                <Image
-                  src={selectedProductImage}
-                  width={380}
-                  height={380}
-                  alt='product_slider_main_image'
-                />
-              </LightgalleryItem>
-
-              {product.galleryImages.nodes.map(({ sourceUrl }) => (
-                <LightgalleryItem src={sourceUrl} key={sourceUrl}>
-                  <Image
-                    src={sourceUrl}
-                    width={255}
-                    height={380}
-                    alt='product_slider_extra_image'
-                  />
-                </LightgalleryItem>
-              ))}
-            </Slider>
-          </LightgalleryProvider>
+                {product.galleryImages.nodes.map(
+                  ({ sourceUrl }) =>
+                    sourceUrl && (
+                      <LightgalleryItem src={sourceUrl} key={sourceUrl}>
+                        <Image
+                          src={sourceUrl}
+                          width={255}
+                          height={380}
+                          alt='product_slider_extra_image'
+                        />
+                      </LightgalleryItem>
+                    )
+                )}
+              </Slider>
+            </LightgalleryProvider>
+          )}
           {windowWidth >= 1023 ? (
             <>
               <Tabs data={data} />

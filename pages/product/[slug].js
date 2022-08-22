@@ -133,7 +133,6 @@ export async function getServerSideProps({ params }) {
   const staticData = new StaticDataSingleton()
   await staticData.checkAndFetch()
   const categories = staticData.getRootCategories()
-
   return {
     props: {
       product: response.data.product,
