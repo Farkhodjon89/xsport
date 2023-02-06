@@ -146,7 +146,7 @@ const InstantBuyModal = ({
                     {/*  onChange={changeColor}>*/}
                     {/*  {colorList}*/}
                     {/*</select>*/}
-                    {product.paColors.nodes[0].name}
+                    {product?.paColors?.nodes[0]?.name}
                   </div>
 
                   <div className={s.size}>
