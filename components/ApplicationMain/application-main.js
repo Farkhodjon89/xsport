@@ -29,14 +29,14 @@ const delivery = [
 const paymentMethods = [
   { img: '', value: 'cash', first: true },
   { img: '', value: 'card' },
-  {
-    img: <span dangerouslySetInnerHTML={{ __html: icons.payme }} />,
-    value: 'payme',
-  },
-  {
-    img: <span dangerouslySetInnerHTML={{ __html: icons.click }} />,
-    value: 'click',
-  },
+  // {
+  //   img: <span dangerouslySetInnerHTML={{ __html: icons.payme }} />,
+  //   value: 'payme',
+  // },
+  // {
+  //   img: <span dangerouslySetInnerHTML={{ __html: icons.click }} />,
+  //   value: 'click',
+  // },
   // {
   //   img: <span dangerouslySetInnerHTML={{ __html: icons.visa }} />,
   //   value: "octo",
