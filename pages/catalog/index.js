@@ -14,10 +14,13 @@ const CatalogPage = ({
   categories,
   activeTerms,
 }) => {
-  const categoriesFilter = categories.map(({ name, slug }) => ({
-    name,
-    link: `/catalog/${slug}`,
-  }))
+  console.log('categories', categories)
+  // const categoriesFilter = categories
+  //   ? categories?.map(({ name, slug }) => ({
+  //       name,
+  //       link: `/catalog/${slug}`,
+  //     }))
+  //   : {}
 
   const breadcrumbs = [
     {
@@ -29,7 +32,7 @@ const CatalogPage = ({
       link: `/catalog`,
     },
   ]
-  // console.log(categories);
+
   return (
     <>
       <Layout categories={categories}>
@@ -38,7 +41,7 @@ const CatalogPage = ({
           <Catalog
             key={uuidv4()}
             products={products}
-            categories={categoriesFilter}
+            categories={categories}
             pageInfo={pageInfo}
             category={category}
             activeTerms={activeTerms}

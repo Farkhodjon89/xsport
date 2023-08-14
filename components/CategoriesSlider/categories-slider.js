@@ -42,27 +42,27 @@ const settings = {
 const CategoriesSlider = ({ categories, parentCategory }) => {
   const categoriesList = []
 
-  if (categories) {
-    for (const category of categories) {
-      categoriesList.push(
-        category.image ? (
-          <div className={s.category}>
-            <Link href={`/catalog/${parentCategory}/${category.slug}`}>
-              <a>
-                <div
-                  className={s.image}
-                  style={{
-                    backgroundImage: `url(${category.image.sourceUrl})`,
-                  }}
-                ></div>
-                <div className={s.title}>{category.name}</div>
-              </a>
-            </Link>
-          </div>
-        ) : null
-      )
-    }
-  }
+  // if (categories) {
+  //   for (const category of categories) {
+  //     categoriesList.push(
+  //       category.image ? (
+  //         <div className={s.category}>
+  //           <Link href={`/catalog/${parentCategory}/${category.slug}`}>
+  //             <a>
+  //               <div
+  //                 className={s.image}
+  //                 style={{
+  //                   backgroundImage: `url(${category.image.sourceUrl})`,
+  //                 }}
+  //               ></div>
+  //               <div className={s.title}>{category.name}</div>
+  //             </a>
+  //           </Link>
+  //         </div>
+  //       ) : null
+  //     )
+  //   }
+  // }
   return (
     <div className='categories_slider'>
       <div className={s.categories}>

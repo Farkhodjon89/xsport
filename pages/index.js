@@ -18,9 +18,9 @@ const Index = ({
   return (
     <>
       <Layout categories={categories}>
-        <MainSlider sliderData={slides} />
+        <MainSlider sliderData={slides?.filter((el) => !!el?.subtitle)} />
         <div className='container'>
-          <CategoriesList categories={homeCategories} />
+          {/* <CategoriesList categories={homeCategories} /> */}
           {!!featuredProducts?.length && (
             <ProductSlider
               products={featuredProducts}

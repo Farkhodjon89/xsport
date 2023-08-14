@@ -1,14 +1,23 @@
-import s from './category-filter.module.scss';
-import Link from 'next/link';
+import s from './category-filter.module.scss'
+import Link from 'next/link'
 
-const CategoryFilter = ({ categories, menu, category, parentCategory, getActiveStatus }) => {
-  const categoryList = [];
-  for (const category of categories) {
+const CategoryFilter = ({
+  categories,
+  menu,
+  category,
+  parentCategory,
+  getActiveStatus,
+}) => {
+  const categoryList = []
+  const allCategories = categories?.allCategories || categories || []
+  for (const category of allCategories) {
     categoryList.push(
       <Link href={`${category.link}`} key={category.databaseId}>
-        <a onClick={() => getActiveStatus && getActiveStatus(false)}>{category.name}</a>
-      </Link>,
-    );
+        <a onClick={() => getActiveStatus && getActiveStatus(false)}>
+          {category.name}
+        </a>
+      </Link>
+    )
   }
   return (
     <div className={menu ? s.menuType : s.type}>
@@ -18,7 +27,8 @@ const CategoryFilter = ({ categories, menu, category, parentCategory, getActiveS
             parentCategory.slug === category.parent.slug
               ? `/catalog/${parentCategory.slug}`
               : `/catalog/${parentCategory.slug}/${category.parent.slug}`
-          }>
+          }
+        >
           <a onClick={() => getActiveStatus && getActiveStatus(false)}>
             Назад в {category.parent.name}
           </a>
@@ -26,6 +36,6 @@ const CategoryFilter = ({ categories, menu, category, parentCategory, getActiveS
       ) : null}
       {categoryList}
     </div>
-  );
-};
-export default CategoryFilter;
+  )
+}
+export default CategoryFilter

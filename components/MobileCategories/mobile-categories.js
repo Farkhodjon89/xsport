@@ -1,16 +1,21 @@
-import Link from 'next/link';
-import { useState } from 'react';
-import icons from '../../public/fixture';
-import s from './mobile-categories.module.scss';
+import Link from 'next/link'
+import { useState } from 'react'
+import icons from '../../public/fixture'
+import s from './mobile-categories.module.scss'
 
-const MobileCategories = ({ categories, parentCategory, saleCategoryImage, getActiveStatus }) => {
-  const [activeCategory, setActiveCategory] = useState();
-  const [activeChildrenCategory, setActiveChildrenCategory] = useState(false);
-  let parentCategories = [];
+const MobileCategories = ({
+  categories,
+  parentCategory,
+  saleCategoryImage,
+  getActiveStatus,
+}) => {
+  const [activeCategory, setActiveCategory] = useState()
+  const [activeChildrenCategory, setActiveChildrenCategory] = useState(false)
+  let parentCategories = []
 
-  for (const category of categories.children.nodes) {
-    let childrenCategories = [];
-    let childrenCategories2 = [];
+  for (const category of categories?.children?.nodes || []) {
+    let childrenCategories = []
+    let childrenCategories2 = []
 
     for (const children of category.children.nodes) {
       if (children.children.nodes.length != 0) {
@@ -18,10 +23,12 @@ const MobileCategories = ({ categories, parentCategory, saleCategoryImage, getAc
           childrenCategories2.push(
             <li className={s.item} onClick={() => getActiveStatus(false)}>
               <Link href={`/catalog/${parentCategory}/${children2.slug}`}>
-                <a onClick={() => setActiveChildrenCategory(true)}>{children2.name}</a>
+                <a onClick={() => setActiveChildrenCategory(true)}>
+                  {children2.name}
+                </a>
               </Link>
-            </li>,
-          );
+            </li>
+          )
         }
       }
       childrenCategories.push(
@@ -32,16 +39,23 @@ const MobileCategories = ({ categories, parentCategory, saleCategoryImage, getAc
             </Link>
           </li>
           {childrenCategories2}
-        </>,
-      );
+        </>
+      )
     }
 
     parentCategories.push(
       <div className={s.categories}>
-        <div className={s.category} onClick={() => setActiveCategory(category.slug)}>
+        <div
+          className={s.category}
+          onClick={() => setActiveCategory(category.slug)}
+        >
           <span className={s.title}>{category.name}</span>
         </div>
-        <div className={`${s.children} ${activeCategory == category.slug ? s.active : null}`}>
+        <div
+          className={`${s.children} ${
+            activeCategory == category.slug ? s.active : null
+          }`}
+        >
           <button className={s.back} onClick={() => setActiveCategory()}>
             <span dangerouslySetInnerHTML={{ __html: icons.fullArrowLeft }} />
             Назад
@@ -49,8 +63,8 @@ const MobileCategories = ({ categories, parentCategory, saleCategoryImage, getAc
           <div className={s.title}>{category.name}</div>
           <ul className={s.list}>{childrenCategories}</ul>
         </div>
-      </div>,
-    );
+      </div>
+    )
   }
   return (
     <>
@@ -65,7 +79,7 @@ const MobileCategories = ({ categories, parentCategory, saleCategoryImage, getAc
         </Link>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default MobileCategories;
+export default MobileCategories

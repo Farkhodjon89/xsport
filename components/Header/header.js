@@ -33,7 +33,8 @@ const Header = ({ cartItems, wishlistItems, categories }) => {
     setScroll(window.scrollY)
   }
   const categoryList = []
-  for (const category of categories) {
+  const allCategories = categories?.allCategories || categories || []
+  for (const category of allCategories) {
     categoryList.push(
       <li className={`${s.item} category_menu`} key={category.databaseId}>
         <Link href={`/catalog/${category.slug}`}>
@@ -209,12 +210,12 @@ const Header = ({ cartItems, wishlistItems, categories }) => {
             </div>
           </div>
         </section>
-        <MobileMenu
+        {/* <MobileMenu
           activeStatus={open}
           getActiveStatus={setOpen}
           categories={categories}
           wishlistItems={wishlistItems}
-        />
+        /> */}
       </header>
     </>
   )

@@ -1,15 +1,21 @@
-import Link from "next/link";
-import s from "./home-category-block.module.scss";
+import Link from 'next/link'
+import s from './home-category-block.module.scss'
 
 const HomeCategoryBlock = ({ categories }) => {
-  
   const bannerList = []
 
-  for (const category of categories) {
+  const allCategories = categories?.allCategories || categories || []
+
+  for (const category of allCategories) {
     bannerList.push(
       <div className={s.banner}>
         <div className={s.imageWrapper}>
-          <div className={s.image} style={{background: `url(${category?.category_settings?.homeImage?.image?.sourceUrl})`}} />
+          <div
+            className={s.image}
+            style={{
+              background: `url(${category?.category_settings?.homeImage?.image?.sourceUrl})`,
+            }}
+          />
         </div>
         <div className={s.button}>
           <a>{category.name}</a>
@@ -21,13 +27,7 @@ const HomeCategoryBlock = ({ categories }) => {
     )
   }
 
-  return (
-     <div className={s.banners}>
-        {bannerList}
-     </div>
-  )
-};
-
-
+  return <div className={s.banners}>{bannerList}</div>
+}
 
 export default HomeCategoryBlock
