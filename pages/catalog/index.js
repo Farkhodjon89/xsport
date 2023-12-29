@@ -14,7 +14,7 @@ const CatalogPage = ({
   categories,
   activeTerms,
 }) => {
-  console.log('categories', categories)
+  
   // const categoriesFilter = categories
   //   ? categories?.map(({ name, slug }) => ({
   //       name,
