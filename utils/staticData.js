@@ -22,12 +22,12 @@ const fetchCategories = async () => {
       ...category,
       id: category.databaseId,
       parent: null,
-      children: category.children
-        ? category.children.nodes.map(({ slug }) => slug)
+      children: category?.children
+        ? category?.children?.nodes?.map(({ slug }) => slug)
         : [],
     }
-    if (category.children && category.children.nodes.length > 0) {
-      for (const subcat1 of category.children.nodes) {
+    if (category?.children && category?.children?.nodes?.length > 0) {
+      for (const subcat1 of category?.children?.nodes) {
         subCategory = {
           slug: subcat1.slug,
           name: subcat1.name,
@@ -156,7 +156,7 @@ export class StaticDataSingleton {
 
     const category = staticData.categories.list.find((c) => c.slug === slug)
 
-    if (level === 0 || category.children.length === 0) {
+    if (level === 0 || category?.children?.length === 0) {
       return {
         ...category,
         children: [],
@@ -165,7 +165,7 @@ export class StaticDataSingleton {
 
     return {
       ...category,
-      children: category.children.map(({ slug }) =>
+      children: category?.children?.map(({ slug }) =>
         new StaticDataSingleton().getCategoryChildren(slug, level - 1)
       ),
     }
@@ -188,7 +188,7 @@ export class StaticDataSingleton {
     const childSlugs = slugs.map((slug) =>
       new StaticDataSingleton().getAllChildrenSlugs(slug, result)
     )
-
+    console.log('childSlugs', childSlugs)
     if (!childSlugs.length || !childSlugs[0]) {
       return
     }

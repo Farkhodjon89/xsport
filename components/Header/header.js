@@ -41,7 +41,7 @@ const Header = ({ cartItems, wishlistItems, categories }) => {
           <a>{category.name}</a>
         </Link>
         <LinksModal
-          categories={category.children.nodes}
+          categories={category?.children?.nodes}
           parentCategory={category.slug}
         />
       </li>
