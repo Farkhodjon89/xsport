@@ -8,7 +8,7 @@ const LinksModal = ({ categories, parentCategory }) => {
   const allCategories = categories?.allCategories || categories || []
   for (const category of allCategories) {
     const subCategoryList = []
-    for (const subCategory of category?.children?.nodes) {
+    for (const subCategory of category?.children?.nodes || []) {
       const subCategoryList2 = []
       if (subCategory?.children?.nodes.length != 0) {
         subCategoryList.push(
@@ -21,7 +21,7 @@ const LinksModal = ({ categories, parentCategory }) => {
             {subCategoryList2}
           </ul>
         )
-        for (const subCategory2 of subCategory?.children?.nodes) {
+        for (const subCategory2 of subCategory?.children?.nodes || []) {
           subCategoryList2.push(
             <>
               <li className={s.item}>

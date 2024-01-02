@@ -93,7 +93,7 @@ export async function getStaticProps({ params }) {
   return {
     props: {
       post,
-      categories: categories.allCategories,
+      categories: categories.allCategories || null,
       notFound: false,
     },
     revalidate: 600,

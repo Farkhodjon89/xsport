@@ -32,6 +32,7 @@ const Header = ({ cartItems, wishlistItems, categories }) => {
   const handleScroll = () => {
     setScroll(window.scrollY)
   }
+  console.log('categories', categories)
   const categoryList = []
   const allCategories = categories?.allCategories || categories || []
   for (const category of allCategories) {

@@ -1,19 +1,19 @@
-import Layout from '../../components/Layout';
-import AdminMain from '../../components/AdminMain';
-import { StaticDataSingleton } from '../../utils/staticData';
-import useUser from '../../utils/useUser';
-import Authorization from '../../components/Authorization';
-import AccountNav from '../../components/AccountNav';
-import Breadcrumbs from '../../components/Breadcrumbs';
-import AccountOrder from '../../components/AccountOrder';
-import AccountHeading from '../../components/AccountHeading';
-import { useRouter } from 'next/router';
-import WishlistMain from '../../components/WishlistMain';
-import AccountSettings from '../../components/AccountSettings';
+import Layout from '../../components/Layout'
+import AdminMain from '../../components/AdminMain'
+import { StaticDataSingleton } from '../../utils/staticData'
+import useUser from '../../utils/useUser'
+import Authorization from '../../components/Authorization'
+import AccountNav from '../../components/AccountNav'
+import Breadcrumbs from '../../components/Breadcrumbs'
+import AccountOrder from '../../components/AccountOrder'
+import AccountHeading from '../../components/AccountHeading'
+import { useRouter } from 'next/router'
+import WishlistMain from '../../components/WishlistMain'
+import AccountSettings from '../../components/AccountSettings'
 
 const Account = ({ categories }) => {
-  useUser({ redirectTo: '/account' });
-  const { userData } = useUser();
+  useUser({ redirectTo: '/account' })
+  const { userData } = useUser()
 
   const path = [
     {
@@ -28,42 +28,42 @@ const Account = ({ categories }) => {
       name: 'Мои данные',
       link: `/`,
     },
-  ];
+  ]
 
   if (!userData?.isLoggedIn) {
-    return null;
+    return null
   }
 
   return (
     <Layout categories={categories}>
-      <div className="container">
+      <div className='container'>
         <Breadcrumbs path={path} />
         <AccountHeading firstName={userData ? userData.user.firstName : null} />
-        <div className="row">
-          <div className="col-lg-3">
+        <div className='row'>
+          <div className='col-lg-3'>
             <AccountNav />
           </div>
-          <div className="col-lg-8 offset-lg-1">
+          <div className='col-lg-8 offset-lg-1'>
             <AccountSettings />
           </div>
         </div>
       </div>
     </Layout>
-  );
-};
+  )
+}
 
 export async function getStaticProps() {
-  const staticData = new StaticDataSingleton();
-  await staticData.checkAndFetch();
+  const staticData = new StaticDataSingleton()
+  await staticData.checkAndFetch()
 
-  const categories = staticData.getRootCategories();
+  const categories = staticData.getRootCategories()
 
   return {
     props: {
-      categories: categories.allCategories,
+      categories: categories.allCategories || null,
     },
     revalidate: 60,
-  };
+  }
 }
 
-export default Account;
+export default Account

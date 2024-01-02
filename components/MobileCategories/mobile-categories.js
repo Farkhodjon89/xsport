@@ -17,7 +17,7 @@ const MobileCategories = ({
     let childrenCategories = []
     let childrenCategories2 = []
 
-    for (const children of category?.children?.nodes) {
+    for (const children of category?.children?.nodes || []) {
       if (children.children.nodes.length != 0) {
         for (const children2 of children.children.nodes) {
           childrenCategories2.push(

@@ -86,8 +86,8 @@ export const getStaticPaths = async () => {
 
   return {
     paths,
-    // fallback: 'blocking',
-    fallback: false,
+    fallback: 'blocking',
+    // fallback: false,
   }
 }
 
@@ -148,7 +148,7 @@ export async function getStaticProps({ params }) {
       pageInfo: products.data.products.pageInfo || null,
       activeTerms: products.data.products.activeTerms || null,
       parentCategory: parentCategory || null,
-      category: category || null,
+      category: JSON.parse(JSON.stringify(category)) || null,
       categories: categories.allCategories || null,
       subCategories: pageData?.data?.productCategory?.children?.nodes || null,
       // newProducts: newProducts.data.products.nodes

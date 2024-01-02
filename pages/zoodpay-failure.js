@@ -24,7 +24,7 @@ export async function getStaticProps() {
 
   return {
     props: {
-      categories: categories.allCategories,
+      categories: categories.allCategories || null,
     },
     revalidate: 60,
   }

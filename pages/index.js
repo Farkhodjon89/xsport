@@ -79,13 +79,15 @@ export async function getStaticProps() {
 
   return {
     props: {
-      categories: categories.allCategories,
-      slides: homePageData.data.themeGeneralSettings.globalOptions?.slider,
+      categories: categories?.allCategories || null,
+      slides:
+        homePageData?.data?.themeGeneralSettings?.globalOptions?.slider || null,
       homeCategories:
-        homePageData.data.themeGeneralSettings.globalOptions?.categories,
-      featuredProducts: featuredProducts.data.products.nodes,
-      discountedProducts: discountedProducts.data.products.nodes,
-      pumaProducts: pumaProducts.data.products.nodes,
+        homePageData.data.themeGeneralSettings.globalOptions?.categories ||
+        null,
+      featuredProducts: featuredProducts.data.products.nodes || null,
+      discountedProducts: discountedProducts.data.products.nodes || null,
+      pumaProducts: pumaProducts.data.products.nodes || null,
     },
     revalidate: 60,
   }

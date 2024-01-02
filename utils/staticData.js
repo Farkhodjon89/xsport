@@ -12,8 +12,8 @@ const fetchCategories = async () => {
   const allCat = response.data.productCategories.nodes.filter(
     (category) => category.slug !== 'misc' && category.slug !== 'uniseks'
   )
-  console.log('allCat', allCat)
-  const allCategories = [allCat[2], allCat[1], allCat[0]]
+
+  const allCategories = [allCat[3], allCat[2], allCat[0]]
 
   for (const category of allCategories) {
     let subCategory2 = {}
@@ -27,7 +27,7 @@ const fetchCategories = async () => {
         : [],
     }
     if (category?.children && category?.children?.nodes?.length > 0) {
-      for (const subcat1 of category?.children?.nodes) {
+      for (const subcat1 of category?.children?.nodes || []) {
         subCategory = {
           slug: subcat1.slug,
           name: subcat1.name,
@@ -38,7 +38,7 @@ const fetchCategories = async () => {
             : [],
         }
         if (subcat1.children && subcat1.children.nodes.length > 0) {
-          for (const subcat2 of subcat1.children.nodes) {
+          for (const subcat2 of subcat1.children.nodes || []) {
             subCategory2 = {
               slug: subcat2.slug,
               name: subcat2.name,
@@ -145,7 +145,7 @@ export class StaticDataSingleton {
             new StaticDataSingleton().getCategoryChildren(
               slug,
               childrenDeepLevel - 1
-            ) || null
+            ) || []
         ),
       }
     }
@@ -165,9 +165,10 @@ export class StaticDataSingleton {
 
     return {
       ...category,
-      children: category?.children?.map(({ slug }) =>
-        new StaticDataSingleton().getCategoryChildren(slug, level - 1)
-      ),
+      children:
+        category?.children?.map(({ slug }) =>
+          new StaticDataSingleton().getCategoryChildren(slug, level - 1)
+        ) || [],
     }
   }
 

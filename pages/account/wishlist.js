@@ -1,14 +1,14 @@
-import Layout from '../../components/Layout';
-import { StaticDataSingleton } from '../../utils/staticData';
-import useUser from '../../utils/useUser';
-import AccountNav from '../../components/AccountNav';
-import Breadcrumbs from '../../components/Breadcrumbs';
-import AccountHeading from '../../components/AccountHeading';
-import WishlistMain from '../../components/WishlistMain';
+import Layout from '../../components/Layout'
+import { StaticDataSingleton } from '../../utils/staticData'
+import useUser from '../../utils/useUser'
+import AccountNav from '../../components/AccountNav'
+import Breadcrumbs from '../../components/Breadcrumbs'
+import AccountHeading from '../../components/AccountHeading'
+import WishlistMain from '../../components/WishlistMain'
 
 const Account = ({ categories }) => {
-  useUser({ redirectTo: '/account' });
-  const { userData } = useUser();
+  useUser({ redirectTo: '/account' })
+  const { userData } = useUser()
 
   const path = [
     {
@@ -23,41 +23,41 @@ const Account = ({ categories }) => {
       name: 'Мои избранные',
       link: ``,
     },
-  ];
+  ]
 
   if (!userData?.isLoggedIn) {
-    return null;
+    return null
   }
   return (
     <Layout categories={categories}>
-      <div className="container">
+      <div className='container'>
         <Breadcrumbs path={path} />
         <AccountHeading firstName={userData ? userData.user.firstName : null} />
-        <div className="row">
-          <div className="col-lg-3">
+        <div className='row'>
+          <div className='col-lg-3'>
             <AccountNav />
           </div>
-          <div className="col-lg-8 offset-lg-1">
+          <div className='col-lg-8 offset-lg-1'>
             <WishlistMain account />
           </div>
         </div>
       </div>
     </Layout>
-  );
-};
+  )
+}
 
 export async function getStaticProps() {
-  const staticData = new StaticDataSingleton();
-  await staticData.checkAndFetch();
+  const staticData = new StaticDataSingleton()
+  await staticData.checkAndFetch()
 
-  const categories = staticData.getRootCategories();
+  const categories = staticData.getRootCategories()
 
   return {
     props: {
-      categories: categories.allCategories,
+      categories: categories.allCategories || null,
     },
     revalidate: 60,
-  };
+  }
 }
 
-export default Account;
+export default Account
