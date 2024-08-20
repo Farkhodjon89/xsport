@@ -29,7 +29,7 @@ const ProductCard = ({
   deleteFromWishlist,
   getActiveStatus,
 }) => {
-  console.log('product', product)
+
   const [selectedProductId, setSelectedProductId] = useState(
     product.variations
       ? product.variations.nodes[0]?.databaseId
@@ -346,9 +346,9 @@ const ProductCard = ({
               <div className={s.attributesName}>Цвет:</div>
               <div className={s.topColor}>
                 {topColors.length !== 0 &&
-                  topColors.map(({ slug, image }) => (
+                  topColors.map(({ slug, image }, index) => (
                     // eslint-disable-next-line react/jsx-key
-                    <Link href={`/product/${slug}`}>
+                    <Link href={`/product/${slug}`} key={index}>
                       <a
                         style={{ backgroundImage: `url(${image.sourceUrl})` }}
                         className={product.slug == slug && s.active}
